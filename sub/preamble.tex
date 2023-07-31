@@ -1,0 +1,91 @@
+% \documentclass{article}
+
+\graphicspath{{images/}}
+\usepackage{verbatim} % for commment, verbatim environment
+\usepackage{spverbatim} % automatic linebreak verbatim environment
+\usepackage{tikz}
+
+% Language setting
+% Replace `English' with e.g. `Spanish' to change the document language
+\usepackage[english]{babel}
+
+% Set page size and margins
+% Replace `letter paper' with `a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=3cm,bottom=2cm,left=2.5cm,right=2.5cm,marginparwidth=2.5cm]{geometry}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    allcolors=blue,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\tikzset{
+    image label/.style={
+	every node/.style={
+	    fill=black,
+	    text=white,
+            font=\sffamily\scriptsize[12pt],
+            % font=\sffamily\scriptsize,
+		anchor=south west,
+		xshift=0,
+		yshift=0,
+	    at={(0,0)}
+	}
+    }
+}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage{indentfirst}
+
+\usepackage{draftwatermark}
+\SetWatermarkLightness{ 0.9 }
+\SetWatermarkText{Copyright 2023 by Dohyun Nam\\All Page content is property of Dohyun Nam}
+\SetWatermarkScale{ 1 }
+
+\title{Ti-89 Titanium Instruction}
+\author{Dohyun Nam}
+
+\usepackage{longtable}
+\usepackage{gensymb}
+\usepackage{wrapfig}
+\usepackage{subcaption}
+\usepackage{floatrow}
+\usepackage{pict2e}
+\usepackage[backend=biber,style=authoryear]{biblatex}
+\usepackage{biblatex}
+\usepackage{pgfplots}
+\pgfplotsset{
+	compat=newest,
+	label style={font=\sffamily\scriptsize},
+	ticklabel style={font=\sffamily\scriptsize},
+	legend style={font=\sffamily\tiny},
+	major tick length=0.1cm,
+	minor tick length=0.05cm,
+	every x tick/.style={black},
+}
+
+\usetikzlibrary{shapes}
+\usetikzlibrary{plotmarks}
+\usepackage{listings}
+\usepackage{hologo}
+\usepackage{makecell}
+\usepackage{color}
+\lstset{
+	basicstyle=\small\ttfamily,
+	columns=flexible,
+	breaklines=true
+}
+
+\citation
+\bibdata

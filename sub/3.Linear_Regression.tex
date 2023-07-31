@@ -1,0 +1,113 @@
+\section{Linear Regression}
+
+Linear Regression is the process of finding a best-fit line for the given data set $({x_i}, {y_i})$. It is used for machine learning, where AI gradually reduces the loss function, and gets closer to the best-fit solution. It is also commonly used in experimental science where we need the slope or y-intercept of the measured data set. The most common principle of linear regression is the least square method. This section refers to p.117 of the \href{https://education.ti.com/en/guidebook/details/en/FA1DC891957E4700B46A67255850C592/89ti}{Instruction}
+
+
+\subsection{Least Square Method}
+The basic concept is to minimize the square sum of the residuals. Let the best-fit line be $y = ax + b$. Then we can set $\hat{y_i}$ as:
+
+\begin{equation}
+    \hat{y_i} = ax_i + b
+    \label{def_best-fit_line}
+\end{equation}
+
+Generally, the best-fit line is just "best-fit", and there is an error, which is expressed as
+
+\begin{equation}
+    e_i = y_i - \hat{y_i} = y_i - a{x_i} - b
+    \label{def_error}
+\end{equation}
+
+There is a  simple way of expressing the best-fit line using the Pearson Correlation Coefficient, but we will skip that part. The goal of the Least Square Method is to minimize the square sum of error, which is:
+
+\begin{equation}
+    E = \sum_{i=1}^{n}{e_i}^2 = 
+    \sum_{i=1}^{n}{(y_{i}^{2} - 2ax_{i}y_{i} - 2by_{i} + a^{2}x_{i}^{2} + 2abx_{i} + b^{2})}
+    \label{sum_of_error_square}
+\end{equation}
+
+We can derive two equations from \ref{sum_of_error_square}.
+
+\begin{equation}
+    {{\partial E}\over{\partial a}} = 0, 
+    {{\partial E}\over{\partial b}} = 0
+    \label{D(E)=0}
+\end{equation}
+There are many techniques for solving the equation, and I prefer to use the matrix method. Organizing \ref{D(E)=0}, we derive:
+
+\begin{equation}
+    {{\partial E}\over{\partial a}} = 
+    \sum_{i=1}^{n} (2ax_{i}^{2} + 2bx_{i} - 2x_{i}y_{i}) = 0 : a {\sum_{i=1}^{n} x_{i}^{2}} + b {\sum_{i=1}^{n} x_{i}} = {\sum_{i=1}^{n} x_{i}y_{i}}
+    \label{dE/da=0}
+\end{equation}
+
+\begin{equation}
+    {{\partial E}\over{\partial b}} = 
+    \sum_{i=1}^{n} (2b - 2y_{i} + 2ax_{i}) = 0 : b {\sum_{i=1}^{n} 1} + a {\sum_{i=1}^{n} x_{i}} = {\sum_{i=1}^{n} y_{i}}
+    \label{dE/db=0}
+\end{equation}
+
+We can use matrix expression from \ref{dE/da=0}, \ref{dE/db=0}:
+
+\begin{equation}
+    \begin{bmatrix}
+    {\sum_{i=1}^{n} x_{i}^2} & {\sum_{i=1}^{n} x_{i}} \\
+    {\sum_{i=1}^{n} x_{i}} & {\sum_{i=1}^{n} 1}
+    \end{bmatrix}
+    \begin{bmatrix}
+        a \\ b
+    \end{bmatrix}
+    = 
+    \begin{bmatrix}
+        \sum_{i=1}^{n} x_{i}y_{i} \\
+        {\sum_{i=1}^{n} y_{i}}
+    \end{bmatrix}
+    \label{matrix_eq}
+\end{equation}
+
+The coefficient matrix for $a$, and $b$ has an inverse matrix, which can be shown. Since it is 2 $\times$ 2, an inverse matrix can be derived with ease, and we get a general formula for $a$ and $b$.
+
+\begin{equation}
+    a = {{\sum_{i=1}^{n}x_{i} \sum_{i=1}^{n}y_{i} - n \sum_{i=1}^{n} x_{i}y_{i}}\over{(\sum_{i=1}^{n}x_{i})^{2} - n \sum_{i=1}^{n}x_{i}^{2}}}, 
+    b = {{1}\over{n}} {({\sum_{i=1}^{n} y_{i}} - a {\sum_{i=1}^{n} x_{i}})}
+    \label{a and b}
+\end{equation}
+
+For further information, refer to \href{https://en.wikipedia.org/wiki/Linear_regression}{Wikipedia}
+
+\subsection{How to derive the coefficient from Linear Regression}
+\begin{enumerate}
+    \item Display the $MODE$ dialog box. For $Graph$ mode, select $FUNCTION$. In most occasions, this is the default setting.\\
+    \textbf{MODE $\rightarrow$ ENTER}
+    
+    \item Exit $Home$, and use $APPS$ to display the $Data/Matrix Editor$. Create a new $data$ type with a new name. The name should be written in the $variable$ section, which doesn't matter in general. There are three types of variables provided: $Data$, $Matrix$, $List$.\\
+    In some cases, there will be an error that the former file has some memory issue. Then, just open the recent file, instead of making a new one.\\
+    \textbf{3 $\downarrow$ $\downarrow$ "Name" ENTER ENTER}
+    
+    \item Enter the data at the blank following sequence.
+    \begin{center}
+        $x_1 , x_2 , ..., x_n , y_1 , y_2 , ..., y_n$
+    \end{center}
+
+    \item Sort $x_i , y_i$ by $x_i$. Move the cursor to r1c1, and click $F6$, $Sort Col, adjust all$. Well, this step doesn't matter. It's needed when the data is scatter plotted, but if the coefficient is what you need, it's fine to pass on.
+
+    \item Open $Calculate$ with $F5$. Set $x, y$ with given variables, which is $c1, c2$. Set $Calculation Type$ with $LinReg$. The given mode for calculating regression is as follows: $OneVar$, $TwoVar$, $CubicReg$, $ExpReg$, $LinReg$, $LnReg$, $MedMed$, $PowerReg$, $QuadReg$, $QuartReg$, $SinReg$, $Logistic$.
+
+    \item $STAT$ $VARS$ box appears, showing coefficients. In the AP test, the numbers are what you need, but just in case, be sure to derive the margin of error about the slope and y-intercept.
+    
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{|c|c|}
+        \hline
+             $y$ & $a*x + b$\\ \hline\hline
+             $a$ & $ ...$\\
+             $b$ & $...$\\
+             $corr$ & $...$\\
+             $R^2$ & $...$\\ \hline
+        \end{tabular}
+        \label{LinearRegression STAT VARS}
+    \end{table}
+
+% For the AP test, the skill needed is evaluating the linear regression coefficient and correlation coefficient. This is the end for the ones who are preparing for AP.
+    
+\end{enumerate}

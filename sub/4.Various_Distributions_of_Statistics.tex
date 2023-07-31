@@ -1,0 +1,164 @@
+\section{Various Distributions of Statistics}
+    There are various distributions of Statistics that are used commonly, such as \textbf{Normal distribution (a.k.a. Gaussian), Student-T distribution, $\chi^2$ distribution, etc}. In this section, we learn how to approach these distributions and get proper values from them including the p-value. To reach the section, go to \textbf{Stats/List Editor}. \textbf{F4} presents you with information about input data, whereas \textbf{F5} gives diverse options of distributions, \textbf{F6} determines true or false between hypotheses $H_0$ and $H_a$, and \textbf{F7} gives confidence interval of the given sample, with selected distribution and parameters.
+
+\subsection{Normal Distribution}
+    A Normal distribution (a.k.a. Gaussian) is the most common for the SRS(Simple Random Sample), where it is approximated from the Binomial distribution by the Central Limit Theorem. There are two parameters, $\mu$ and $\sigma$, which represent the mean and standard deviation of the data set, respectively.
+    
+    \begin{equation}
+        X \sim \mathcal{N}(\mu,\,\sigma^{2}) : f(x) = {1\over{\sigma \sqrt{2\pi}}} \exp{-{{(x-\mu)^2}\over{2\sigma^2}}}
+        \label{def_Normal_Distribution}
+    \end{equation}
+
+    The graph of the distribution is symmetric, and bell-shaped, with the inflection points at $x=\mu \pm \sigma$. The standard normal distribution is more commonly used, expressed as $\mathcal{N}(0, 1)$. If probability variable X follows $N(\mu, \sigma^{2})$, it can be standardized to Z as
+
+    \begin{equation}
+        X \sim \mathcal{N}(\mu,\,\sigma^{2}) : Z = \frac{X-\mu}{\sigma} \sim\mathcal{N}(0, 1)
+        \label{def_Standard_Normal_Distribution}
+    \end{equation}
+
+    Because of the standardization, the position of $X$ from $N(\mu, \sigma)$ is generalized to $Z$ from $N(0, 1)$ which is easily read from the calculator or \href{https://www.z-table.com/}{Z-score table}.
+    
+    \begin{itemize}
+        \item NormalPdf\\
+        
+        Press \textbf{F5 3}.
+
+        \item NormalCdf\\
+        Returns the percentile of the interval from the normal distribution with given parameters. Type in lower bound, upper bound, $\mu$, $\sigma^{2}$.
+        \begin{center}
+            $Cdf = P(x_{lb}\leq X \leq x_{ub}),  X\sim \mathcal{N}(\mu,\,\sigma^{2})$
+            \label{NormalCdf}
+        \end{center}
+
+        Press \textbf{F5 4}.
+
+        \item Z-Test\\
+
+        Press \textbf{F6 1}
+
+        \item 2-SampZTest\\
+
+        Press $F6$ $3$
+
+        \item 1-PropZTest\\
+
+        Press $F6$ $5$
+
+        \item 2-PropZTest\\
+
+        Press $F6$ 6
+
+        \item Z-Interval\\
+        This one might be important!
+
+        Press $F7$ $1$
+
+        \item 2-SampZInterval\\
+
+        Press $F7$ $2$
+
+        \item 1-PropZInterval\\
+
+        Press $F7$ $5$
+
+        \item 2-PropZInterval\\
+
+        Press $F7$ $6$
+
+        \item
+        
+    \end{itemize}
+
+    For further information, take a look at \href{https://en.wikipedia.org/wiki/Normal_distribution}{Wikipedia}
+
+\subsection{Student-T Distribution}
+    A Normal distribution (a.k.a. Gaussian) is the most common for the SRS(Simple Random Sample), where it is approximated from the Binomial distribution by the Central Limit Theorem.
+
+    \begin{itemize}
+        \item tPdf\\
+        Press \textbf{F5 3}.
+
+        \item tCdf\\
+        Returns the percentile of the interval from the normal distribution with given parameters. Input $LowVal$, $UpVal$, $\mu$, $\sigma^{2}$.
+
+        Press \textbf{F5 4}.
+
+        \item T-Test\\
+
+        Press \textbf{F6 1}
+
+        \item 2-SampTTest\\
+
+        Press \textbf{F6 3}
+
+        \item T-Interval\\
+
+        Press \textbf{F7 1}
+
+        \item 2-SampTInterval\\
+
+        Press \textbf{F7 2}
+
+    \end{itemize}
+
+    For further information, take a look at \href{https://en.wikipedia.org/wiki/Student%27s_t-distribution}{Wikipedia}
+
+\subsection{$\chi^{2}$ Distribution}
+    A $\chi^{2}$ distribution is used for determining the independence of two variables, checking the homogeneity of the proportions, or judging whether a given linear fit is valid with the data set.
+    
+    \begin{equation}
+        
+        \label{def_Normal_Distribution}
+    \end{equation}
+
+    \begin{itemize}
+        \item Chi-squarePdf\\
+        
+        Press \textbf{F5 3}.
+
+        \item Chi-squareCdf\\
+        Returns the percentile of the interval from the normal distribution with given parameters. Input $LowVal$, $UpVal$, $\mu$, $\sigma^{2}$.
+        \begin{center}
+            $Cdf = P(LowVal\leq X \leq UpVal),  X\sim \mathcal{N}(\mu,\,\sigma^{2})$
+            \label{NormalCdf}
+        \end{center}
+
+        Press \textbf{F5 4}.
+
+        \item Chi2 GOF\\
+
+        Press $F6$ $1$
+
+        \item Chi2 2-way\\
+
+        Press $F6$ $3$
+
+    \end{itemize}
+
+\subsection{F Distribution}
+\subsection{Binomial Distribution}
+    Binomial Distribution is a discrete probability distribution of the number of successes from n independent trials that give boolean results: success, fail. The probability of success from a single trial is $p$, and the probability of failure is $q$. Each trial is called the Bernoulli experiment, and the distribution includes two parameters: $n$, $p$. The probability variable X is the number of successes; its distribution is expressed as
+
+    \begin{equation}
+        X \sim \mathcal{B}(n, p) : P(x = k) = {}_n C_k p^{k}q^{n-k}
+        \label{def_Binomial_Distribution}
+    \end{equation}
+
+    The binomial distribution is related to the proportion since $p$ is the probability of success, but also it means the proportion of some proper set. By the Central Limit Theorem, the binomial can be approximated to the normal distribution when $np\geq5$ and $nq\geq5$.
+
+    \begin{equation}
+        E(X) = np, V(X) = npq
+        \label{E(X), V(X): X ~ B(n, p)}
+    \end{equation}
+
+    \begin{equation}
+        X\sim\mathcal{B}(n, p) : X \sim\mathcal{N}(np, npq)
+        \label{B(n, p) -> N(np, npq)}
+    \end{equation}
+
+    \begin{itemize}
+        \item BinomialCdf
+        \item BinomialPdf   
+    \end{itemize}
+
+\subsection{Geometric Distribution}

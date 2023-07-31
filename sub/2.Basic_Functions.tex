@@ -1,0 +1,88 @@
+\section{Basic Functions}
+
+\subsection{Basic Calculation}
+Most of the calculations can be processed at "Home". It's better to try on your own with the device, rather than reading this or the original instruction and following the steps, one by one. It's pretty much intuitive. But, there are still some things to be cautious of:
+
+\begin{itemize}
+    \item When the negative sign is needed, use (-) instead of the deduction operator $-$. The calculator recognizes the operator and the sign differently.
+
+    \item When calculating division, the answer is shown as a fraction of the divisor and the dividend if both numbers are integers. In order to see the result in decimal form, multiply 1.0. Since it is similar to a computer, it changes all values to double as a double type number is given.
+\end{itemize}
+
+These two bugged me occasionally, and be sure to remember them. Also, there are other functions provided, such as solving equations, differentiating, and integrating.
+
+\subsection{Additional Functions}
+    \subsubsection{F2}
+        \begin{enumerate}
+            \item solve\\
+                Write an equation of $x$ (or other dummy variables), with comma and dummy variable
+                \begin{center}
+                    $solve(f(x) = 0, x)$
+                \end{center}
+                Then, the solution(or solutions) is given as "$x = a_1$ or $x = a_2$, ..."
+                
+            \item factor\\
+                Write a number or polynomial of $x$ (or other dummy variables). If a number is written, prime factorization of the number is given. If a polynomial is written with a dummy variable, factorization of the polynomial in the field of Real numbers.
+                \begin{center}
+                    $factor(x^2 - 1, x) = (x-1)*(x+1)$\\
+                    $factor(x^2 + 1, x) = x^2 + 1$\\
+                    $factor(333) = 3^2*37$\\
+                \end{center}
+            % \item zeros
+            % \item approx
+            % \item comDenom
+            % \item propFrac
+            % \item nSolve
+        \end{enumerate}
+
+    \subsubsection{F3}
+        \begin{enumerate}
+            \item d(differentiate)\\
+                Write a function of $x$ (or other dummy variables), with a comma and dummy variable. The derivative is given as a result.
+                \begin{center}
+                    $d(x^2 + 1, x) = 2x$
+                \end{center}
+            \item $\int$ (integrate)\\
+                Write a function of $x$ (or other dummy variables), with a comma, dummy variable, and boundary value. The result of a calculation is given.
+                \begin{center}
+                    $\int(f(x), x, a, b) = \int_a ^b f(x) dx$
+                \end{center}
+                
+            \item limit\\
+                Write an expression of a limit that you want to derive, as a function of x (or other dummy variables). After, write $x$ (dummy variable) and the value it is reaching for.
+
+                \begin{center}
+                    $lim(f(x), x, c) = \lim_{x \rightarrow c} f(x)$
+                \end{center}
+                
+                $c$ can be any value including all of the real numbers and $\pm \infty$. What about imaginary numbers...? Well, I haven't tried since AP exams don't have any problems involving imaginary numbers. Also, as I know, the limit of the imaginary number is defined differently from the limit of the real number. There is an $\varepsilon - \delta$ logic, but the definition of the norm is what really matters. About this part, I need to search and learn more.
+            % \item $\sum$ (sum)
+            % \item $\prod$ (product)
+            % \item fMin
+            % \item fMax
+            \item arcLen\\
+                Write a function of $x$ (or other dummy variables), with its boundary values: lower bound and upper bound. The arc length of a graph of a function within the range is derived.
+                
+                \begin{center}
+                    $arcLen(f(x), x, x_{lb}, x_{ub}) = \int_{x=lb}^{x=ub} {\sqrt{dx^2 + dy^2}}$
+                \end{center}
+
+                Mathematically thinking, the proper notation of infinitesimal arc length function is $\sqrt{dx^2 + dy^2}$ rather than $dx\sqrt{({{dy}\over{dx}})^2 + 1}$ since $dy/dx$ may not exist. It works the same for $dx/dy$, and there might be another way to evaluate the derivative, such as differentiating through a parameter.
+                
+        \end{enumerate}
+
+    % \subsubsection{F4}
+    %     This section will be filled in later
+    % \subsubsection{F5}
+    %     This section will be filled in later
+    % \subsubsection{F6}
+    %     This section will be filled in later
+
+\subsection{How to draw a graph}
+Drawing a graph is a useful skill for checking your answer.
+
+\begin{enumerate}
+    \item Open "Y=" editor
+    \item Write function at "y1 = ", "y2 = ", ...
+    \item 
+\end{enumerate}
